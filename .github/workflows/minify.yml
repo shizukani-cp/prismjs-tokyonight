@@ -1,0 +1,37 @@
+name: minify
+
+on:
+  push:
+    branches:
+      - "main"
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: HTML/CSS/JS Minifier
+        uses: docker://devatherock/minify-js:3.1.0
+        with:
+          add_suffix: true
+          inclusions: |-
+            .tokyonight-.+-prism\.css
+      - name: Pull latest changes
+        run: |
+          git config --global user.name 'minifier[bot]'
+          git config --global user.email 'minifier[bot]@users.noreply.github.com'
+          git pull --rebase
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          git commit -m "minify"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
+
