@@ -1,0 +1,135 @@
+/**
+ * PrismJS Theme: Tokyo Night (Moon Style)
+ * Author: shizukani-cp
+ * Inspired by folke/tokyonight.nvim
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #c8d3f5; /* Default text color */
+  background: #222436; /* Dark background with a slight blue hue */
+  font-family: 'Fira Code', monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+}
+
+/* Code block background */
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  border-radius: 8px;
+  background: #222436; /* Same background as the container */
+}
+
+/* Inline code background */
+:not(pre) > code[class*="language-"] {
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
+  background: #1e2030; /* Slightly darker background for inline */
+  color: #c8d3f5; /* Default text color */
+}
+
+/* Tokens */
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7a88cf; /* Muted purple for comments */
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #cfc9c2; /* Soft white for punctuation */
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ff757f; /* Red for important values */
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #c3e88d; /* Green for strings and new additions */
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.token.variable {
+  color: #82aaff; /* Blue for operators and variables */
+}
+
+.token.atrule,
+.token.attr-value,
+.token.class-name {
+  color: #86e1fc; /* Light blue for classes and attributes */
+}
+
+.token.function,
+.token.regex {
+  color: #ffc777; /* Golden yellow for functions */
+}
+
+.token.keyword {
+  color: #fca7ea; /* Pink for keywords */
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+/* Line numbers (optional) */
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+  position: relative;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid #585b70;
+}
+
+.line-numbers-rows > span {
+  counter-increment: linenumber;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+  color: #444a73; /* Muted blue for line numbers */
+}
